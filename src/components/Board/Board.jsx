@@ -1,4 +1,5 @@
-import React, {useContext} from 'react'
+import  {useContext} from 'react'
+import './Board.css'
 import Square from '../Square/Square'
 import { GameContext } from '../../assets/GameContext';
 
