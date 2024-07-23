@@ -1,0 +1,27 @@
+button {
+    width: 4rem;
+    height: 4rem;
+    background-color: #277CA5;
+    border: none;
+    border-radius: 5%;
+    box-shadow: 0px 0px 8px black;
+    margin: 0;
+}
+
+button:hover {
+    background-color: #0582CA;
+}
+
+.X {
+    color: #00FC74;
+    background-color: #0582CA;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3rem;
+}
+
+.O {
+    color: #CC0000;
+    background-color: #0582CA;
+}
