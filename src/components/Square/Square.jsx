@@ -11,7 +11,7 @@ function Square({index}) {
             const newBoard = [...board];
             newBoard[index] = value;
             setBoard(newBoard);
-            setValue(value === "X" ? "X" : "O");
+            setValue(value === "X" ? "O" : "X");
         }
     };
 
