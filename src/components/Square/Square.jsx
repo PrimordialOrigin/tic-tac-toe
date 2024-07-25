@@ -4,10 +4,10 @@ import { GameContext } from "../../assets/GameContext";
 
 
 function Square({index}) {
-    const {value, setValue, board, setBoard} = useContext(GameContext);
+    const {value, setValue, board, setBoard, winner} = useContext(GameContext);
 
     const squareClick = () => {
-        if (!board[index]) {
+        if (!board[index] && !winner) {
             const newBoard = [...board];
             newBoard[index] = value;
             setBoard(newBoard);
