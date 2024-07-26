@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Board from './components/Board/Board'
+import Popup from './components/Popup/Popup';
 import { GameContext } from './assets/GameContext';
 
 function App() {
   const [value, setValue] = useState("X");
   const [board, setBoard] = useState(Array(9).fill(null));
   const [winner, setWinner] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const calculateWinner = (board) => {
     const lines = [
@@ -33,6 +35,7 @@ function App() {
     const winner = calculateWinner(board);
     if(winner) {
       setWinner(winner);
+      setShowPopup(true);
     }
   }, [board]);
 
@@ -40,7 +43,12 @@ function App() {
     setBoard(Array(9).fill(null));
     setWinner(null);
     setValue("X")
+    setShowPopup(false);
   }
+
+  const closePopup = () => {
+    setShowPopup(false);  // Close the popup without resetting the game
+  };
   
 
   return (
@@ -48,14 +56,13 @@ function App() {
       <GameContext.Provider value={{ value, setValue, board, setBoard, winner, setWinner}}>
 
         <h1>Welcome <span>Player</span></h1>
-        {winner && <h2>Winner: {winner} </h2>}
         <Board />
         <button 
         className='restart' 
         onClick={restartGame}>
           RESTART GAME
         </button>
-      
+        {showPopup && <Popup winner={winner} closePopup={closePopup} />}
       </GameContext.Provider>
     </div>
   );
